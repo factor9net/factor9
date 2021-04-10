@@ -1,0 +1,13 @@
+{{!< default}}
+
+<div id="error-page">
+    <div class="post post-presentation lazy background-pattern">
+        <div class="gradient gradient2 d-flex align-items-center">
+            <div class="container">
+                <h1>{{t "Error:"}} {{statusCode}}</h1>
+                <p>{{message}}</p>
+                <a href="{{@site.url}}" class="btn btn-no-background"><i class="fa fa-chevron-left"></i> {{t "Return"}}</a>
+            </div>
+        </div>
+    </div>
+</div>

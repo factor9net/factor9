@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+
+    <head>
+
+        {{! SITE'S META DATA }}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#A98B69"/>
+
+        {{! SITE'S DESCRIPTION }}
+        <title>{{meta_title}} {{^is "home, paged"}}| {{@site.title}}{{/is}}</title>
+        <meta name="description" content="{{@site.description}}">
+
+        {{! CSS ASSETS / FONTS }}
+        <style>
+            .dark .background-pattern{background-image:url("{{asset "images/dark-pattern.png"}}")}.light .background-pattern{background-image:url("{{asset "images/light-pattern.png"}}")}.dark .post-presentation .author-image-fill{background-image:url("{{asset "images/prof-icon-white.png"}}")}.light .post-presentation .author-image-fill{background-image:url("{{asset "images/prof-icon-dark.png"}}")}.dark .logo-light,.light .logo-dark{display:inline-block}.dark .logo-dark,.light .logo-light{display:none}
+        </style>
+
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600|Oswald:400,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link href="{{asset "built/css/extra.css"}}" rel="stylesheet" type="text/css">
+        {{{block "post-styles"}}}
+        <link href="{{asset "built/css/style.css"}}" rel="stylesheet" type="text/css">
+
+        {{! DNS PREFETCH }}
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+        <link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com">
+        <link rel="dns-prefetch" href="https://code.jquery.com">
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+        <script>
+            var switcherActive = false;
+            var themeColors = "{{> theme-colors}}";
+        </script>
+
+        {{ghost_head}}
+
+    </head>
+
+    <body class="{{body_class}}">
+
+        {{! Navbar - Go to partials/navbar.hbs to view this partial. }}
+        {{> navbar switcher=""}}
+
+        {{{body}}}
+
+        {{! Search - Go to partials/search.hbs to view this partial. }}
+        {{> "search"}}
+
+        {{! Footer - Go to partials/footer.hbs to view this partial. }}
+        {{> "footer"}}
+
+        {{! JS ASSETS }}
+
+        <script>
+            var ghosthunter_key = "";
+            var maxPages = parseInt('{{pagination.pages}}');
+            var endMessage = '{{t "No More Posts"}}';
+            var loadingMessage = '{{t "Loading..."}}';
+            var Message = '{{t "More posts"}}';
+        </script>
+
+        <script src="{{asset "built/js/extra.js"}}"></script>
+        {{{block "post-scripts"}}}
+        <script src="{{asset "built/js/main.js"}}"></script>
+
+        {{ghost_foot}}
+
+    </body>
+
+</html>
